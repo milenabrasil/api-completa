@@ -158,7 +158,7 @@ app.delete('/tarefas/:id', autenticar, async (req, res) => {
 
     const [verificarTarefa] = await db.execute(
         'SELECT * FROM tarefas WHERE id=? AND usuario_id=?',
-        [id,idUsuario]
+        [id, idUsuario]
     )
 
     if (!verificarTarefa[0]) {
@@ -167,10 +167,10 @@ app.delete('/tarefas/:id', autenticar, async (req, res) => {
 
     const [deletarTarefa] = await db.execute(
         'DELETE FROM tarefas WHERE id=? AND usuario_id=?',
-        [id,idUsuario]
+        [id, idUsuario]
     )
 
-    res.status(200).json({mensagem:'Tarefa deletada com sucesso'})
+    res.status(200).json({ mensagem: 'Tarefa deletada com sucesso' })
 
 })
 
